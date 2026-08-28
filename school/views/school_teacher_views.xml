@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="action_teacher" model="ir.actions.act_window">
+            <field name="name">نام استاد</field>
+            <field name="res_model">school.teacher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+
+        <record id="view_teacher_form" model="ir.ui.view">
+            <field name="name">school.teacher.form</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+
+                        <group>
+                            <field name="is_active" />
+                            <field name="first_name" placeholder="نام خود را وارد کنید"></field>
+                            <field name="last_name"></field>
+                            <field name="description" placeholder="توضیحات تکمیلی" />
+                        </group>
+
+
+                        <notebook>
+
+                            <page string="اطلاعات شخصی">
+                                <group>
+                                    <group>
+                                        <field name="first_name" />
+                                        <field name="last_name" />
+                                        <field name="birth_date" placeholder="تاریخ تولد" />
+                                        <field name="gender" placeholder="جنسیت" />
+                                        <field name="email" placeholder="ایمیل" />
+                                    </group>
+                                    <group>
+                                        <field name="phone" placeholder="شماره تلفن همراه" />
+                                        <field name="address" placeholder="ادرس محل سکونت" />
+                                    </group>
+                                </group>
+                            </page>
+                            <page string="اطلاعات استادی">
+                                <group>
+                                    <field name="student_code" placeholder="کد استادی" />
+                                    
+                                    <field name="grade" />
+
+                                    <field name="lesson" widget="many2many_tags" placeholder="دروس قابل تدرسیث" />
+
+                                </group>
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+
+        </record>
+
+
+        
+
+        <record id="view_teacher_tree" model="ir.ui.view">
+            <field name="name">school.teacher.tree</field>
+            <field name="model">school.teacher</field>
+            <field name="arch" type="xml">
+                <tree default_order="id desc">
+                    <field name="first_name" />
+                    <field name="last_name" />
+                    <field name="grade" />
+                    <field name="birth_date" optional="show"/>
+                    <field name="lesson" widget="many2many_tags"/>
+                    <field name="phone" optional="hide"/>
+                    <field name="email" optional="hide"/>
+                    <field name="student_code" />
+                </tree>
+            </field>
+        </record>
+
+
+
+
+    </data>
+</odoo>

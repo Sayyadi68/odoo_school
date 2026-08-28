@@ -11,5 +11,11 @@
     'license': 'LGPL-3',
     'data': [
         'security/ir.model.access.csv',
+
+
+        'views/school_student_views.xml',
+        'views/school_teacher_views.xml',
+        'views/school_lesson_views.xml',
+        'views/menu.xml'
     ],
 }
